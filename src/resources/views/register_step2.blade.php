@@ -10,7 +10,7 @@
         <h2 class="container-title">新規会員登録</h2>
         <p class="step-title">STEP2 体重データの入力</p>
 
-        <form class="form" action="/admin" method="post">
+        <form class="form" action="/register/step2" method="post">
             @csrf
             <div class="form-list">
                 <div class="form-item">
@@ -37,8 +37,8 @@
             </div>
 
             <div class="button-container">
-                <a href="{{ route('admin') }}" type="submit" class="button btn-register">アカウント作成
-                </a>
+                <button type="submit" class="button btn-register">アカウント作成
+                </button>
             </div>
         </form>
     </div>

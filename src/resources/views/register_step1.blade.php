@@ -10,7 +10,7 @@
         <h2 class="container-title">新規会員登録</h2>
         <p class="step-title">STEP1 アカウント情報の登録</p>
 
-        <form class="form" action="/register/step2" method="post">
+        <form class="form" action="/register/step1" method="post">
             @csrf
             <div class="form-list">
                 <div class="form-item">
@@ -49,7 +49,7 @@
                 </button>
             </div>
 
-            <a href="{{ route('login') }}">ログインはこちら</a>
+            <a href="/login">ログインはこちら</a>
         </form>
     </div>
 @endsection

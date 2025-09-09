@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\WeightController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [WeightController::class, 'index'])->name('admin');
+
+    Route::get('/weight_logs/{log}', [WeightController::class, 'show'])->name('weight_logs.show');
+
+    Route::patch('/weight_logs/{log}', [WeightController::class, 'update'])->name('weight_logs.update');
+
+    Route::delete('/weight_logs/{log}', [WeightController::class, 'destroy'])->name('weight_logs.destroy');
+
+    Route::get('/target', [WeightController::class, 'editTarget'])->name('target.edit');
+    Route::patch('/target', [WeightController::class, 'updateTarget'])->name('target.update');
+
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+});
 
