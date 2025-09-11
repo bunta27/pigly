@@ -10,7 +10,8 @@ class WeightTarget extends Model
 {
     use HasFactory;
 
-    protected $table = 'weight_targets';
+    protected $table = 'weight_target';
+
     protected $fillable = [
         'user_id',
         'target_weight',

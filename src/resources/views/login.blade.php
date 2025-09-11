@@ -9,7 +9,7 @@
         <h1 class="site-title">PiGLy</h1>
         <h2 class="container-title">ログイン</h2>
 
-        <form class="form" action="/admin" method="post">
+        <form class="form" action="{{ route('login.post') }}" method="post">
             @csrf
             <div class="form-list">
                 <div class="form-item">
@@ -24,7 +24,7 @@
 
                 <div class="form-item">
                     <label for="password">パスワード</label>
-                    <input type="text" name="password" placeholder="パスワードを入力">
+                    <input type="password" name="password" placeholder="パスワードを入力">
                 </div>
                 @error('password')
                     <div class="error-message">

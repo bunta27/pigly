@@ -18,15 +18,17 @@ class WeightLog extends Model
         'exercise_content',
     ];
 
+    protected $casts = [
+        'date' => 'date',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function getExerciseHmAttribute()
+    public function getExerciseHmAttribute($value)
     {
-        $hours = intdiv($this->exercise_time, 60);
-        $minutes = $this->exercise_time % 60;
-        return sprintf('%02d:%02d', $hours, $minutes);
+        return substr($value, 0, 5);
     }
 }
