@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/register/step1',[UserController::class, 'showRegisterStep1'])->name('register.step1');
+Route::post('/register/step1',[UserController::class, 'storeStep1'])->name('register.step1.store');
+
+Route::get('/register/step2',[UserController::class, 'showRegisterStep2'])->name('register.step2');
+Route::post('/register/step2',[UserController::class, 'storeStep2'])->name('register.step2.store');
 
 Route::get('/login',[UserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [UserController::class, 'login'])->name('login.post');

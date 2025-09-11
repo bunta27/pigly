@@ -27,7 +27,7 @@ class WeightLog extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getExerciseHmAttribute($value)
+    public function getExerciseTimeAttribute($value)
     {
         return substr($value, 0, 5);
     }

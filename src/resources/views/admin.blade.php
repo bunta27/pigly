@@ -66,7 +66,7 @@
                             <td>{{ $log->date->format('Y/m/d') }}</td>
                             <td>{{ number_format($log->weight,1) }} kg</td>
                             <td>{{ number_format($log->calories) }} cal</td>
-                            <td>{{ sprintf('%02d:%02d', intdiv($log->exercise_time,60), $log->exercise_time % 60) }}</td>
+                            <td>{{ $log->exercise_time }}</td>
                             <td>
                                 <a href="{{ route('weight_logs.show', $log->id) }}" class="button btn-edit">
                                     <img src="{{ asset('icons/pen.svg') }}" class="icon">

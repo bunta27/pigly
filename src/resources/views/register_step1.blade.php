@@ -10,7 +10,7 @@
         <h2 class="container-title">新規会員登録</h2>
         <p class="step-title">STEP1 アカウント情報の登録</p>
 
-        <form class="form" action="/register/step1" method="post">
+        <form class="form" action="{{ route('register.step1.store') }}" method="post">
             @csrf
             <div class="form-list">
                 <div class="form-item">
@@ -35,7 +35,7 @@
 
                 <div class="form-item">
                     <label for="password">パスワード</label>
-                    <input type="text" name="password" placeholder="パスワードを入力">
+                    <input type="password" name="password" placeholder="パスワードを入力">
                 </div>
                 @error('password')
                     <div class="error-message">
