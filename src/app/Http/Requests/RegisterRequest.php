@@ -21,6 +21,7 @@ class RegisterRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
         if ($this->routeIs('register.step1.store')) {
@@ -33,7 +34,7 @@ class RegisterRequest extends FormRequest
 
         if ($this->routeIs('register.step2.store')) {
 
-            $decimalRule = ['required','max:999.9','regex:/^\d{1,4}(\.\d)?$/'];
+            $decimalRule = ['required','numeric','max:999.9','regex:/^\d{1,4}(\.\d)?$/'];
 
             return [
                 'weight' => $decimalRule,

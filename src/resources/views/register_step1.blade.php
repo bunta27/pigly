@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/register-step1.css') }}">
 @endsection
+
+@section('body-class', 'auth-background')
 
 @section('content')
     <div class="register-container">
@@ -49,7 +51,7 @@
                 </button>
             </div>
 
-            <a href="/login">ログインはこちら</a>
+            <a class="login-text" href="/login">ログインはこちら</a>
         </form>
     </div>
 @endsection

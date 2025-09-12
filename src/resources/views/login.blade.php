@@ -4,8 +4,10 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 @endsection
 
+@section('body-class', 'auth-background')
+
 @section('content')
-    <div class="register-container">
+    <div class="login-container">
         <h1 class="site-title">PiGLy</h1>
         <h2 class="container-title">ログイン</h2>
 
@@ -36,7 +38,7 @@
                 <button type="submit" class="next-button">ログイン
                 </button>
             </div>
-            <a href="{{ route('register.step1') }}">アカウント作成はこちら</a>
+            <a class="register-text" href="{{ route('register.step1') }}">アカウント作成はこちら</a>
         </form>
     </div>
 @endsection

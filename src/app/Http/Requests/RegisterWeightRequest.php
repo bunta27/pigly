@@ -11,6 +11,7 @@ class RegisterWeightRequest extends FormRequest
      *
      * @return bool
      */
+
     public function authorize()
     {
         return true;

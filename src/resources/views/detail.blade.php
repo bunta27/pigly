@@ -6,18 +6,26 @@
 
 @section('content')
 <div class="container">
-    <header>
-        <h1 class="site-title">PiGLy</h1>
-        <nav>
-            <button class="button btn-model">目標体重登録設定</button>
+    <header class="header">
+        <h1 class="site-logo">PiGLy</h1>
+        <div class="header-button">
+            <a href="{{ route('target.edit') }}" class="button btn-model">
+                <span><img src="/icons/gear.svg" class="icon"></span>
+                目標体重設定
+            </a>
             <form method="POST" action="{{ route('logout') }}" style="display:inline">
             @csrf
-                <button class="button btn-logout">ログアウト</button>
+                <button class="button btn-logout">
+                    <span>
+                        <img src="/icons/logout.svg" class="icon">
+                    </span>
+                    ログアウト
+                </button>
             </form>
-        </nav>
+        </div>
     </header>
 
-    <main>
+    <main class="main">
         <div class="card form-card">
             <h2>Weight Log</h2>
 
@@ -35,7 +43,7 @@
                 <label>
                     <span class="label">体重</span>
                     <div class="input-with-suffix">
-                        <input type="number" step="0.1" name="weight" class="input" value="{{ old('weight', number_format($log->weight,1)) }}" required>
+                        <input type="number" step="0.1" name="weight" class="input input-weight" value="{{ old('weight', number_format($log->weight,1)) }}" required>
                         <span>kg</span>
                     </div>
                     @error('weight')
@@ -46,7 +54,7 @@
                 <label>
                     <span class="label">摂取カロリー</span>
                     <div class="input-with-suffix">
-                        <input type="number" name="calories" class="input" value="{{ old('calories', $log->calories) }}" required>
+                        <input type="number" name="calories" class="input input-calories" value="{{ old('calories', $log->calories) }}" required>
                         <span>cal</span>
                     </div>
                     @error('calories')
@@ -71,8 +79,12 @@
                 </label>
 
                 <div class="form-actions">
-                    <a href="{{ route('admin') }}" class="button btn-secondary">戻る</a>
-                    <div class="spacer"></div>
+                    <div class="form-actions-left">
+                        <a href="{{ route('admin') }}" class="button btn-secondary">戻る</a>
+                        <div class="spacer"></div>
+
+                        <button class="button btn-primary">更新</button>
+                    </div>
 
                     <form method="POST" action="{{ route('weight_logs.destroy', $log->id) }}"
                     onsubmit="return confirm('削除しますか？')">
@@ -80,8 +92,6 @@
                     @method('DELETE')
                         <button class="button btn-danger" title="削除">🗑</button>
                     </form>
-
-                    <button class="button btn-primary">更新</button>
                 </div>
             </form>
         </div>

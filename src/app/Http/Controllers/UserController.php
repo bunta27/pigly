@@ -78,12 +78,14 @@ class UserController extends Controller
 
     public function storeStep2(RegisterRequest $request)
     {
+        $validated = $request->validated();
+
         $authenticatedUser = Auth::user();
 
         WeightLog::create([
             'user_id'          => $authenticatedUser->id,
             'date'             => now()->toDateString(),
-            'weight'           => $request->weight,
+            'weight'           => $validated['weight'],
             'calories'         => 0,
             'exercise_time'    => '00:00:00',
             'exercise_content' => '',
@@ -92,7 +94,7 @@ class UserController extends Controller
         $authenticatedUser->weightTarget()->delete();
         WeightTarget::create([
             'user_id'       => $authenticatedUser->id,
-            'target_weight' => $request->target_weight,
+            'target_weight' => $validated['target_weight'],
         ]);
 
         return redirect('/admin');

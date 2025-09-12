@@ -1,10 +1,10 @@
-.login-container {
+.register-container {
     max-width: 600px;
-        margin: 80px auto;
-        padding: 20px;
-        background-color: rgba(255, 255, 255, 0.9);
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 80px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .site-title {
@@ -25,6 +25,15 @@
     font-family: 'Hiragino Mincho Pro', serif;
 }
 
+.step-title {
+    font-size: 16px;
+    color: #555;
+    padding: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: normal;
+}
+
 .form-list {
     align-items: center;
     list-style: none;
@@ -36,6 +45,7 @@
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .form-item label {
@@ -46,21 +56,34 @@
     text-align: left;
 }
 
-.form-item input[type="email"],
-.form-item input[type="password"] {
+.weight-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-item input[type="text"] {
     flex: 1;
     padding: 11px 10px;
     font-size: 16px;
     border: 1px solid #e0dfde;
     border-radius: 5px;
+    width: 470px;
+    margin-right: 10px;
 }
 
-.form-item input[type="email"]::placeholder,
-.form-item input[type="password"]::placeholder {
+.form-item input[type="text"]::placeholder {
     color: #cdcdcd;
 }
 
-.next-button {
+.form-item .weight-unit {
+    white-space: nowrap;
+    font-size: 16px;
+    padding-top: 24px;
+    color: #333;
+}
+
+.button,
+btn-register {
     display: block;
     margin: 0 auto 10px auto;
     width: 250px;
@@ -74,17 +97,9 @@
     transition: background-color 0.3s ease;
 }
 
-.next-button:hover {
+.button:hover,
+.btn-register:hover {
     background: linear-gradient(90deg, #FFABD9, #A3A6E1);
-}
-
-.register-text {
-    display: block;
-    text-align: center;
-    margin: 20px;
-    font-size: 14px;
-    color: #2C99FF;
-    font-family: 'Hiragino Mincho Pro', serif;
 }
 
 .error-message {

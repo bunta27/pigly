@@ -1,0 +1,151 @@
+.container {
+    max-width: 1512px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.site-logo {
+    color: #EC87EF;
+    margin: 0;
+    font-weight: normal;
+    font-family: 'Lora', serif;
+    font-size: 40px;
+}
+
+.btn-model {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    border: 1px solid #cdcdcd;
+    color: #333;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-model:hover {
+    background-color: #e6e6e6;
+}
+
+.button .icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    border: 1px solid #cdcdcd;
+    color: #333;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: #e6e6e6;
+}
+
+.main {
+    padding: 307px 521px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-card {
+    width: 470px;
+    background: #fff;
+    padding: 30px 20px;
+    margin: 30px auto;
+}
+
+.form-card h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.input {
+    width: 400px;
+    padding: 11px 10px;
+    border: 1px solid #e0dfde;
+    border-radius: 5px;
+    font-size: 14px;
+    background: #fff;
+    transition: border 0.2s, background 0.2s;
+}
+
+.input-with-suffix {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 0;
+}
+
+.input-with-suffix span {
+    margin-left: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    gap: 12px
+}
+
+.btn-secondary {
+    width: 200px;
+    background-color: #e0dfde;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 13px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    background-color: #cdcdcd;
+}
+
+.btn-primary {
+    width: 200px;
+    background: linear-gradient(90deg, #A3A6E1, #FFABD9);
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 13px;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #FFABD9, #A3A6E1);
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 30px;
+}

@@ -6,16 +6,26 @@
 
 @section('content')
 <div class="container">
-    <header>
+    <header class="header">
         <h1 class="site-logo">PiGLy</h1>
-        <button class="button btn-model">目標体重登録設定</button>
-        <form method="POST" action="{{ route('logout') }}" style="display:inline">
-        @csrf
-            <button class="button btn-logout">ログアウト</button>
-        </form>
+        <div class="header-button">
+            <a href="{{ route('target.edit') }}" class="button btn-model">
+                <span><img src="/icons/gear.svg" class="icon"></span>
+                目標体重設定
+            </a>
+            <form method="POST" action="{{ route('logout') }}" style="display:inline">
+            @csrf
+                <button class="button btn-logout">
+                    <span>
+                        <img src="/icons/logout.svg" class="icon">
+                    </span>
+                    ログアウト
+                </button>
+            </form>
+        </div>
     </header>
 
-    <main>
+    <main class="main">
         <div class="card status status--group">
             <div class="status-item">
                 <div class="status-label">目標体重</div>
@@ -44,10 +54,18 @@
                 <span class="tilde">～</span>
                 <input type="date" name="to" value="{{ request('to') }}" class="input-date">
                 <button type="submit" class="button btn-filter">検索</button>
-                <a href="{{ route('admin') }}" class="button btn-reset">リセット</a>
+                @if(request('from') || request('to'))
+                    <a href="{{ route('admin') }}" class="button btn-reset">リセット</a>
+                @endif
             </form>
-            <button id="openModal" class="button btn-primary">データ追加</button>
+            <button class="button btn-primary" onclick="Livewire.emit('openModal')">データ追加</button>
         </div>
+
+        @if(request()->filled('from') && request()->filled('to'))
+            <p class="search-result">
+                {{ (new DateTime(request('from')))->format('Y年m月d日') }}～{{ (new DateTime(request('to')))->format('Y年m月d日') }}の検索結果　{{ $logs->total() }}件
+            </p>
+        @endif
 
         <div class="table-container">
             <table class="table">
@@ -69,7 +87,7 @@
                             <td>{{ $log->exercise_time }}</td>
                             <td>
                                 <a href="{{ route('weight_logs.show', $log->id) }}" class="button btn-edit">
-                                    <img src="{{ asset('icons/pen.svg') }}" class="icon">
+                                    @include('icons.pen')
                                 </a>
                             </td>
                         </tr>
@@ -78,11 +96,11 @@
             </table>
 
             <div class="pagination">
-                {{ $logs->links() }}
+                {{ $logs->links('vendor.pagination.pigly') }}
             </div>
         </div>
+        <livewire:modal />
     </main>
 </div>
-
 
 @endsection
