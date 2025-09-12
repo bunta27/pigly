@@ -51,13 +51,16 @@ class WeightController extends Controller
         return view('admin', compact('target', 'logs', 'latestWeight', 'toGoal', 'count', 'from', 'to'));
     }
 
-    public function show(WeightLog $log)
+    public function show(WeightLog $weightLogId)
     {
+        $log = $weightLogId;
         return view('detail', compact('log'));
     }
 
-    public function update(UpdateWeightLogRequest $request, WeightLog $log)
+    public function update(UpdateWeightLogRequest $request, WeightLog $weightLogId)
     {
+        $log = $weightLogId;
+
         $data = $request->validated();
 
         $time = $data['exercise_time'] ?? null;
@@ -80,8 +83,9 @@ class WeightController extends Controller
         return redirect()->route('admin')->with('ok', '登録しました');
     }
 
-    public function destroy(WeightLog $log)
+    public function destroy(WeightLog $weightLogId)
     {
+        $log = $weightLogId;
         $log->delete();
         return redirect()->route('admin')->with('ok', '削除しました');
     }

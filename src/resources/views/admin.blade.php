@@ -86,7 +86,7 @@
                             <td>{{ number_format($log->calories) }} cal</td>
                             <td>{{ $log->exercise_time }}</td>
                             <td>
-                                <a href="{{ route('weight_logs.show', $log->id) }}" class="button btn-edit">
+                                <a href="{{ route('weight_logs.show', ['weightLogId' => $log->id]) }}" class="button btn-edit">
                                     @include('icons.pen')
                                 </a>
                             </td>

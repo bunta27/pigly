@@ -29,7 +29,7 @@
         <div class="card form-card">
             <h2>Weight Log</h2>
 
-            <form method="POST" action="{{ route('weight_logs.update', $log->id) }}" class="form-grid">
+            <form method="POST" action="{{ route('weight_logs.update', ['weightLogId' => $log->id]) }}" class="form-grid">
             @csrf
             @method('PATCH')
                 <label>
