@@ -62,7 +62,7 @@ MySQL が起動しない場合は OS によって設定が必要になること�
 
 ## ER 図
 
-<img src="docs/ER.svg" alt="ER図" width="700">
+<img src="src/docs/ER.svg" alt="ER図" width="700">
 
 ## URL
 
