@@ -46,10 +46,10 @@ Laravel と Livewire を用いて開発されています。
 
 MySQL が起動しない場合は OS によって設定が必要になることがあります。各自の PC に合わせて `docker-compose.yml` の設定を調整してください。
 
-## userのログイン用初期データ
+## user のログイン用初期データ
 
-メールアドレス: test@example.com
-パスワード: password123
+- メールアドレス: test@example.com
+- パスワード: password123
 
 ## 使用技術（実行環境）
 
