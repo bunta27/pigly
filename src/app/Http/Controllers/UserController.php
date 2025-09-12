@@ -26,15 +26,20 @@ class UserController extends Controller
         $credentials = $request->validate([
             'email'    => ['required', 'email'],
             'password' => ['required'],
+        ],
+        [
+            'email.required' => 'メールアドレスを入力してください',
+            'email.email' => 'メールアドレスは「ユーザー名@ドメイン」形式で入力してください',
+            'password.required' => 'パスワードを入力してください',
         ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin');
+            return redirect()->intended(route('admin'));
         }
 
         return back()->withErrors([
-            'email' => 'メールアドレスまたはパスワードが正しくありません。',
+            'email' => 'メールアドレスまたはパスワードが正しくありません',
         ])->onlyInput('email');
     }
 
