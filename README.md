@@ -12,7 +12,7 @@ Laravel と Livewire を用いて開発されています。
 
 2. .env 作成
 
-- cp .env.example .env
+- cp src/.env.example src/.env
 
 3. .env を docker-compose のサービス名に合わせて調整
 
@@ -36,11 +36,16 @@ Laravel と Livewire を用いて開発されています。
 
 - php artisan key:generate
 
-7. マイグレーションの実行
+7. パーミッション設定（重要）
+
+- chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+- chmod -R ug+rwX /var/www/storage /var/www/bootstrap/cache
+
+8. マイグレーションの実行
 
 - php artisan migrate
 
-8. シーディングの実行
+9. シーディングの実行
 
 - php artisan db:seed
 
@@ -59,6 +64,18 @@ MySQL が起動しない場合は OS によって設定が必要になること�
 - MySQL 8.0.26
 - Nginx 1.21.1
 - Docker 28.3.2/ Doker Composer v2.39.1
+
+## 注意点
+
+- 言語設定  
+config/app.php の locale が ja になっていることを確認してください。  
+キャッシュが残っている場合は以下を実行：  
+- php artisan config:clear
+- php artisan cache:clear
+
+- ルーティング  
+ログイン後の管理画面は /weight_logs がトップ（route 名 admin）です。  
+/admin ではなく /weight_logs にアクセスしてください。
 
 ## ER 図
 
