@@ -22,7 +22,7 @@
                     <label class="modal__field">
                         <span class=field-title>体重 <span class="required">必須</span></span>
                         <div class="input-with-suffix">
-                            <input type="number" step="0.1" wire:model.defer="weight" class="input input-weight" placeholder="50.0" required>
+                            <input type="text" wire:model.defer="weight" class="input input-weight" placeholder="50.0" required>
                             <span>kg</span>
                         </div>
                         @error('weight')

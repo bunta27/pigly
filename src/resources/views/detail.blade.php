@@ -34,7 +34,7 @@
             @method('PATCH')
                 <label>
                     <span class="label">日付</span>
-                    <input type="date" name="date" class="input" value="{{ old('date', $log->date->format('Y-m-d')) }}" required>
+                    <input type="date" name="date" class="input" value="{{ old('date', $log->date->format('Y年m月d日')) }}" required>
                     @error('date')
                         <p class="error-text">{{ $message }}</p>
                     @enderror
@@ -43,7 +43,7 @@
                 <label>
                     <span class="label">体重</span>
                     <div class="input-with-suffix">
-                        <input type="number" step="0.1" name="weight" class="input input-weight" value="{{ old('weight', number_format($log->weight,1)) }}" required>
+                        <input type="text" name="weight" class="input input-weight" value="{{ old('weight', number_format($log->weight,1)) }}" required>
                         <span>kg</span>
                     </div>
                     @error('weight')
@@ -72,7 +72,7 @@
 
                 <label>
                     <span class="label">運動内容</span>
-                    <textarea wire:model="exercise_content" class="textarea" placeholder="運動の内容を追加"></textarea>
+                    <textarea name="exercise_content" class="textarea" placeholder="運動の内容を追加"></textarea>
                     @error('exercise_content')
                         <span class="error">{{ $message }}</span>
                     @enderror
@@ -85,9 +85,7 @@
 
                         <button class="button btn-primary">更新</button>
                     </div>
-
-                    <form method="POST" action="{{ route('weight_logs.destroy', $log->id) }}"
-                    onsubmit="return confirm('削除しますか？')">
+                    <form method="POST" action="{{ route('weight_logs.destroy', $log->id) }}" onsubmit="return confirm('削除しますか？')">
                     @csrf
                     @method('DELETE')
                         <button class="button btn-danger" title="削除">🗑</button>

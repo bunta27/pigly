@@ -102,6 +102,6 @@ class UserController extends Controller
             'target_weight' => $validated['target_weight'],
         ]);
 
-        return redirect('/admin');
+        return redirect(route('admin'));
     }
 }

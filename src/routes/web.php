@@ -27,11 +27,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/weight_logs', [WeightController::class, 'index'])->name('admin');
 
     Route::prefix('weight_logs')->group(function () {
+        Route::get('goal_setting',  [WeightController::class, 'editTarget'])->name('target.edit');
+        Route::patch('goal_setting',[WeightController::class, 'updateTarget'])->name('target.update');
         Route::get('{weightLogId}',   [WeightController::class, 'show'])->name('weight_logs.show');
         Route::patch('{weightLogId}', [WeightController::class, 'update'])->name('weight_logs.update');
         Route::delete('{weightLogId}',[WeightController::class, 'destroy'])->name('weight_logs.destroy');
-        Route::get('goal_setting',  [WeightController::class, 'editTarget'])->name('target.edit');
-        Route::patch('goal_setting',[WeightController::class, 'updateTarget'])->name('target.update');
     });
 
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');

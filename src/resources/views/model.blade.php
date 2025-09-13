@@ -46,7 +46,7 @@
 
                 <div class="form-actions">
                     <a href="{{ route('admin') }}" class="button btn-secondary">戻る</a>
-                    <button class="button btn-primary">保存</button>
+                    <a  href="{{ route('admin') }}" class="button btn-primary">保存</a>
                 </div>
             </form>
         </div>
