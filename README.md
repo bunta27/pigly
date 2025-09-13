@@ -70,8 +70,9 @@ MySQL が起動しない場合は OS によって設定が必要になること�
 - 言語設定  
 config/app.php の locale が ja になっていることを確認してください。  
 キャッシュが残っている場合は以下を実行：  
-- php artisan config:clear
-- php artisan cache:clear
+
+php artisan config:clear
+php artisan cache:clear
 
 - ルーティング  
 ログイン後の管理画面は /weight_logs がトップ（route 名 admin）です。  
