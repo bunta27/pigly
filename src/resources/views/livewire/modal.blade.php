@@ -11,7 +11,7 @@
                 <form wire:submit.prevent="save" class="modal__body">
                     <label class="modal__field">
                         <span class=field-title>日付 <span class="required">必須</span></span>
-                        <input type="date" wire:model.defer="date" class="input" required>
+                        <input type="date" wire:model.defer="date" class="input">
                         @error('date')
                             <span class="error">
                                 {{ $message }}
@@ -22,7 +22,7 @@
                     <label class="modal__field">
                         <span class=field-title>体重 <span class="required">必須</span></span>
                         <div class="input-with-suffix">
-                            <input type="text" wire:model.defer="weight" class="input input-weight" placeholder="50.0" required>
+                            <input type="text" wire:model.defer="weight" class="input input-weight" placeholder="50.0">
                             <span>kg</span>
                         </div>
                         @error('weight')
@@ -35,7 +35,7 @@
                     <label class="modal__field">
                         <span class=field-title>摂取カロリー <span class="required">必須</span></span>
                         <div class="input-with-suffix">
-                            <input type="number" wire:model.defer="calories" class="input input-calories" placeholder="1200" required>
+                            <input type="number" wire:model.defer="calories" class="input input-calories" placeholder="1200">
                             <span>cal</span>
                         </div>
                         @error('calories')
@@ -47,7 +47,7 @@
 
                     <label class="modal__field">
                         <span class=field-title>運動時間 <span class="required">必須</span></span>
-                        <input type="time" wire:model.defer="exercise_time" class="input input-time" placeholder="00:00" required>
+                        <input type="time" wire:model.defer="exercise_time" class="input input-time" placeholder="00:00">
                         @error('exercise_time')
                             <span class="error">
                                 {{ $message }}

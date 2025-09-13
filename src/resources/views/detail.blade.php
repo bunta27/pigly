@@ -29,12 +29,12 @@
         <div class="card form-card">
             <h2>Weight Log</h2>
 
-            <form method="POST" action="{{ route('weight_logs.update', ['weightLogId' => $log->id]) }}" class="form-grid">
+            <form id="updateForm" method="POST" action="{{ route('weight_logs.update', ['weightLogId' => $log->id]) }}" class="form-grid">
             @csrf
             @method('PATCH')
                 <label>
                     <span class="label">日付</span>
-                    <input type="date" name="date" class="input" value="{{ old('date', $log->date->format('Y年m月d日')) }}" required>
+                    <input type="date" name="date" class="input" value="{{ old('date', $log->date->format('Y年m月d日')) }}">
                     @error('date')
                         <p class="error-text">{{ $message }}</p>
                     @enderror
@@ -43,7 +43,7 @@
                 <label>
                     <span class="label">体重</span>
                     <div class="input-with-suffix">
-                        <input type="text" name="weight" class="input input-weight" value="{{ old('weight', number_format($log->weight,1)) }}" required>
+                        <input type="text" name="weight" class="input input-weight" value="{{ old('weight', number_format($log->weight,1)) }}">
                         <span>kg</span>
                     </div>
                     @error('weight')
@@ -54,7 +54,7 @@
                 <label>
                     <span class="label">摂取カロリー</span>
                     <div class="input-with-suffix">
-                        <input type="number" name="calories" class="input input-calories" value="{{ old('calories', $log->calories) }}" required>
+                        <input type="number" name="calories" class="input input-calories" value="{{ old('calories', $log->calories) }}">
                         <span>cal</span>
                     </div>
                     @error('calories')
@@ -64,7 +64,7 @@
 
                 <label>
                     <span class="label">運動時間</span>
-                    <input type="time" name="exercise_time" class="input" value="{{ old('exercise_time', sprintf('%02d:%02d', intdiv((int)$log->exercise_time,60), (int)$log->exercise_time % 60)) }}" required>
+                    <input type="time" name="exercise_time" class="input" value="{{ old('exercise_time', sprintf('%02d:%02d', intdiv((int)$log->exercise_time,60), (int)$log->exercise_time % 60)) }}">
                     @error('exercise_time')
                         <p class="error-text">{{ $message }}</p>
                     @enderror
@@ -77,21 +77,20 @@
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </label>
+            </form>
 
-                <div class="form-actions">
-                    <div class="form-actions-left">
-                        <a href="{{ route('admin') }}" class="button btn-secondary">戻る</a>
-                        <div class="spacer"></div>
+            <div class="actions-row">
+                <div class="actions-left">
+                    <a href="{{ route('admin') }}" class="button btn-secondary">戻る</a>
+                    <button type="submit" form="updateForm" class="button btn-primary">更新</button>
+                </div>
 
-                        <button class="button btn-primary">更新</button>
-                    </div>
-                    <form method="POST" action="{{ route('weight_logs.destroy', $log->id) }}" onsubmit="return confirm('削除しますか？')">
+                <form method="POST" action="{{ route('weight_logs.destroy', $log->id) }}" onsubmit="return confirm('削除しますか？')">
                     @csrf
                     @method('DELETE')
                         <button class="button btn-danger" title="削除">🗑</button>
-                    </form>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </main>
 </div>

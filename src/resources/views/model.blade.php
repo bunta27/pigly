@@ -34,7 +34,7 @@
             @method('PATCH')
                 <label>
                     <div class="input-with-suffix">
-                        <input type="text" name="target_weight" value="{{ old('target_weight', $target->target_weight) }}" class="input" required>
+                        <input type="text" name="target_weight" value="{{ old('target_weight', $target->target_weight) }}" class="input">
                         <span>kg</span>
                     </div>
                     @error('target_weight')
@@ -46,7 +46,7 @@
 
                 <div class="form-actions">
                     <a href="{{ route('admin') }}" class="button btn-secondary">戻る</a>
-                    <a  href="{{ route('admin') }}" class="button btn-primary">保存</a>
+                    <button type="submit" class="button btn-primary">保存</button>
                 </div>
             </form>
         </div>
