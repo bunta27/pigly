@@ -34,7 +34,7 @@
             @method('PATCH')
                 <label>
                     <span class="label">日付</span>
-                    <input type="date" name="date" class="input" value="{{ old('date', $log->date->format('Y年m月d日')) }}">
+                    <input type="date" name="date" class="input" value="{{ old('date', $log->date->format('Y-m-d')) }}">
                     @error('date')
                         <p class="error-text">{{ $message }}</p>
                     @enderror
@@ -64,7 +64,7 @@
 
                 <label>
                     <span class="label">運動時間</span>
-                    <input type="time" name="exercise_time" class="input" value="{{ old('exercise_time', sprintf('%02d:%02d', intdiv((int)$log->exercise_time,60), (int)$log->exercise_time % 60)) }}">
+                    <input type="time" name="exercise_time" class="input" value="{{ old('exercise_time', substr($log->exercise_time, 0, 5)) }}">
                     @error('exercise_time')
                         <p class="error-text">{{ $message }}</p>
                     @enderror
@@ -74,7 +74,7 @@
                     <span class="label">運動内容</span>
                     <textarea name="exercise_content" class="textarea" placeholder="運動の内容を追加"></textarea>
                     @error('exercise_content')
-                        <span class="error">{{ $message }}</span>
+                        <span class="error-text">{{ $message }}</span>
                     @enderror
                 </label>
             </form>

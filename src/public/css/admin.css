@@ -388,6 +388,13 @@
     font-size: 14px;
 }
 
+.modal__body .error {
+    display: block;
+    margin-top: 6px;
+    color: red;
+    font-size: 14px;
+}
+
 .modal__footer {
     display: flex;
     justify-content: center;
